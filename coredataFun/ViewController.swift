@@ -12,7 +12,13 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        //Referring to the app delegate
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        
+        //context is a manager that allows us to work with Core Data
+        let context = appDelegate.persistentContainer.viewContext
+        
     }
 
     override func didReceiveMemoryWarning() {
