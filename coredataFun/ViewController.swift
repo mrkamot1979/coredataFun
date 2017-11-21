@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        /* Creating new Users
+        
         //Referring to the app delegate
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         
@@ -25,6 +25,7 @@ class ViewController: UIViewController {
         //line below enables us to save the User
         let newUser = NSEntityDescription.insertNewObject(forEntityName: "Users", into: context)
         
+        /* Creating new Users
         //line that actually creates a new user
         newUser.setValue("Phoebe", forKey: "username")
         newUser.setValue("ebak", forKey: "password")
@@ -39,6 +40,34 @@ class ViewController: UIViewController {
             print("THERE WAS AN ERROR")
         }
         */
+        
+        
+        //Retrieving the created Users
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Users")
+        
+        do
+        {
+            let results = try context.fetch(request)
+            
+            if results.count > 0
+            {
+                for result in results as! [NSManagedObject]
+                {
+                    if let username = result.value(forKey: "username") as? String
+                    {
+                        print(username)
+                        
+                    }
+                }
+            }
+        }
+        catch
+        {
+            
+        }
+        
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
