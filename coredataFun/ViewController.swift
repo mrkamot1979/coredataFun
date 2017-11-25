@@ -25,9 +25,9 @@ class ViewController: UIViewController {
         //line below enables us to save the User
         let newUser = NSEntityDescription.insertNewObject(forEntityName: "Users", into: context)
         
-        /* Creating new Users
+         /*Creating new Users
         //line that actually creates a new user
-        newUser.setValue("Phoebe", forKey: "username")
+        newUser.setValue("Pepe", forKey: "username")
         newUser.setValue("ebak", forKey: "password")
         
         do
@@ -39,6 +39,7 @@ class ViewController: UIViewController {
         {
             print("THERE WAS AN ERROR")
         }
+ 
         */
         
         
@@ -63,10 +64,9 @@ class ViewController: UIViewController {
         }
         catch
         {
-            
+            print("Error retrieving data, please check")
         }
-        
-        
+                
         
     }
 
